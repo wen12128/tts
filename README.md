@@ -1,4 +1,8 @@
-# 淘淘网 爱淘淘 这处网
+# 淘淘网 爱淘淘 这处网 http://www.mogujie.com/
+
+branch master->develop->test->release
+test branck edit
+release first
 
 ## host server
   mytt.cloudfoundry.com

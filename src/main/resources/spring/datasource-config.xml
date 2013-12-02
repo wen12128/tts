@@ -2,40 +2,45 @@
 <!--
     Application context definition for tts Datasource.
 -->
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:cloud="http://schema.cloudfoundry.org/spring"
-       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
-       http://schema.cloudfoundry.org/spring http://schema.cloudfoundry.org/spring/cloudfoundry-spring.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/jdbc
+       http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
     <!-- ========================= DATASOURCE DEFINITION ========================= -->
 
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
     <context:property-placeholder location="classpath:spring/data-access.properties"/>
 
-    <beans profile="cloud">
-        <!--<cloud:data-source id="dataSource">
+    <!--<beans profile="cloud">
+        &lt;!&ndash;<cloud:data-source id="dataSource">
             <cloud:connection properties="utf-8"/>
             <cloud:pool max-wait-time="2000" pool-size="5-10"/>
-        </cloud:data-source>-->
+        </cloud:data-source>&ndash;&gt;
         <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}" p:username="${jdbc.username}" p:password="${jdbc.password}"/>
 
-        <!-- Database initializer. If any of the script fails, the initialization stops. -->
-        <!-- As an alternative, for embedded databases see <jdbc:embedded-database/>. -->
-        <!-- 初始化数据表结构 与默认数据-->
-        <jdbc:initialize-database data-source="dataSource">
+        &lt;!&ndash; Database initializer. If any of the script fails, the initialization stops. &ndash;&gt;
+        &lt;!&ndash; As an alternative, for embedded databases see <jdbc:embedded-database/>. &ndash;&gt;
+        &lt;!&ndash; 初始化数据表结构 与默认数据&ndash;&gt;
+        &lt;!&ndash;<jdbc:initialize-database data-source="dataSource">
             <jdbc:script location="${jdbc.initLocation}"/>
-            <!--<jdbc:script location="${jdbc.dataLocation}"/>-->
-        </jdbc:initialize-database>
-    </beans>
+            <jdbc:script location="${jdbc.dataLocation}"/>
+        </jdbc:initialize-database>&ndash;&gt;
+    </beans>-->
 
-    <beans profile="mybatis">
-        <!-- DataSource configuration for the tomcat jdbc connection pool
-        See here for more details on commons-dbcp versus tomcat-jdbc:
-        http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/-->
-        <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
-              p:driverClassName="${jdbc.driverClassName}"
-              p:url="${jdbc.url}"
-              p:username="${jdbc.username}" p:password="${jdbc.password}"/>
-    </beans>
+    <!-- DataSource configuration for the tomcat jdbc connection pool
+    See here for more details on commons-dbcp versus tomcat-jdbc:
+    http://blog.ippon.fr/2013/03/13/improving-the-performance-of-the-spring-petclinic-sample-application-part-3-of-5/-->
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}" p:password="${jdbc.password}"/>
 
     <!-- myBatis文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

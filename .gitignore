@@ -8,17 +8,19 @@ tmp/
 bin/
 logs/
 
-.idea
-.DS_Store
-.checkstyle
-.history
-.settings
-.classpath
-.project
+.idea/
+.DS_Store/
+.checkstyle/
+.history/
+.settings/
+.classpath/
+.project/
 
 Thumbs.db
 
 *.iml
+*.ipr
+*.iws
 *.lock
 *.class
 *.jar
