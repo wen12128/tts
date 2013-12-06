@@ -6,7 +6,54 @@
 	<version>1.0.0-SNAPSHOT</version>
 
 	<name>tts</name>
+    <description>Product Navigation</description>
+    <url>http://wsd.ap01.aws.af.cm/</url>
+    <inceptionYear>2013</inceptionYear>
 	<packaging>war</packaging>
+
+    <organization>
+        <name>personal</name>
+        <url>http://caishanchun.cn/</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>eric</id>
+            <name>Eric</name>
+            <email>wen12128@gmail.com</email>
+            <roles>
+                <role>Project leader</role>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <!-- <ciManagement>
+        <system>Jenkins</system>
+        <url>http://ec2-107-22-29-7.compute-1.amazonaws.com/hudson/</url>
+    </ciManagement> -->
+
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/wen12128/tts/issues</url>
+    </issueManagement>
+
+    <scm>
+        <url>https://github.com/wen12128/tts</url>
+        <connection>scm:git:git://github.com/wen12128/tts.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:wen12128/tts.git</developerConnection>
+    </scm>
 
 	<properties>
 		<!-- Generic properties -->
@@ -65,29 +112,13 @@
 		<dandelion.datatables.version>0.8.14</dandelion.datatables.version>
 	</properties>
 
-	<!-- <ciManagement>
-        <system>Jenkins</system>
-        <url>http://ec2-107-22-29-7.compute-1.amazonaws.com/hudson/</url>
-    </ciManagement>
-
-    <issueManagement>
-        <system>Github</system>
-        <url>https://github.com/springside/springside4/issues</url>
-    </issueManagement>
-
-    <scm>
-        <url>https://github.com/springside/springside4</url>
-        <connection>scm:git:git://github.com/springside/springside4.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:springside/springside4.git</developerConnection>
-    </scm> -->
-
 	<repositories>
-        <!--<repository>
+        <repository>
             <id>baemaven</id>
             <name>BAE Maven</name>
             <url>http://maven.duapp.com/nexus/content/groups/public/</url>
             <releases><enabled>true</enabled></releases>
-        </repository>-->
+        </repository>
 
         <repository>
             <id>oschina</id>
@@ -103,12 +134,12 @@
     </repositories>
 
     <pluginRepositories>
-        <!--<pluginRepository>
+        <pluginRepository>
             <id>baemaven</id>
             <name>BAE Maven</name>
             <url>http://maven.duapp.com/nexus/content/groups/public/</url>
             <releases><enabled>true</enabled></releases>
-        </pluginRepository>-->
+        </pluginRepository>
 
         <pluginRepository>
             <id>oschina</id>
@@ -457,7 +488,7 @@
         </dependency>
 
         <!-- baidu yun-->
-        <!--<dependency>
+        <dependency>
             <groupId>com.baidu.bce.javaruntime</groupId>
             <artifactId>bce-api-util-local</artifactId>
             <version>1.0.0</version>
@@ -487,7 +518,7 @@
             <artifactId>httpcore</artifactId>
             <version>4.1</version>
             <scope>provided</scope>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
 	<!-- all Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
@@ -552,7 +583,7 @@
 					<warName>tts</warName>
 				</configuration>
 			</plugin>
-            <!--<plugin>
+            <plugin>
                 <groupId>com.baidu.bae.maven.jetty</groupId>
                 <artifactId>bae-maven-jetty-plugin</artifactId>
                 <version>8.0.0.M3</version>
@@ -578,7 +609,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
             <!--<plugin>
                 <groupId>org.cloudfoundry</groupId>
                 <artifactId>cf-maven-plugin</artifactId>
@@ -629,8 +660,8 @@
 				<version>2.0</version>
 				<configuration>
 					<server>tomcat-development-server</server>
-					<port>8080</port>
-					<path>/tts</path>
+					<!--<port>8080</port>
+					<path>/tts</path>-->
 					<uriEncoding>${project.build.sourceEncoding}</uriEncoding>
 				</configuration>
 			</plugin>
