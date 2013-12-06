@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 @XmlRootElement(name = "xml")
 public class SendMusicMessageRequest implements Serializable {
+    private static final long serialVersionUID = -6877120408806711138L;
     //properties
     private String touser;
     private String msgtype="video";
@@ -52,6 +53,7 @@ public class SendMusicMessageRequest implements Serializable {
     }
 
     public static class Video implements Serializable {
+        private static final long serialVersionUID = 1933764887414548244L;
         private String media_id;
         private String thumb_media_id;
 

@@ -54,6 +54,7 @@ public class SendVoiceMessageRequest implements Serializable {
     }
 
     public static class Image implements Serializable {
+        private static final long serialVersionUID = -3840806613077443780L;
         private String media_id;
 
         public Image() {}

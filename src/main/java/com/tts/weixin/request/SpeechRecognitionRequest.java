@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 @XmlRootElement(name = "xml")
 public class SpeechRecognitionRequest implements Serializable {
+    private static final long serialVersionUID = -9220460672551421103L;
     //properties
     private String toUserName;
     private String fromUserName;

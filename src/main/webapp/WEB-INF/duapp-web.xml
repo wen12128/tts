@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    baidu yun - 启动分布式Session、静态文件等特有配置
+-->
+<du-web-app xmlns="http://bae.baidu.com/java/1.0">
+    <system-properties>
+        <property name="test.com" value="haha,test"/>
+    </system-properties>
+    <sessions-enabled>true</sessions-enabled>
+    <static-files>
+        <include path="/**.html"   expiration ="access 1 months" />
+        <include path="/resources/**"   expiration ="access 60 seconds" />
+    </static-files>
+</du-web-app>

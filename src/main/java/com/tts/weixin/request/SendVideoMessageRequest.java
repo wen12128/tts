@@ -54,6 +54,7 @@ public class SendVideoMessageRequest implements Serializable {
     }
 
     public static class Voice implements Serializable {
+        private static final long serialVersionUID = -4993769034870108192L;
         private String media_id;
 
         public Voice() {}

@@ -16,6 +16,8 @@ import java.io.Serializable;
  */
 @XmlRootElement(name = "xml")
 public class RQEvent implements Serializable {
+    private static final long serialVersionUID = 1843493077239213823L;
+
     //properties
     private String toUserName;
     private String fromUserName;

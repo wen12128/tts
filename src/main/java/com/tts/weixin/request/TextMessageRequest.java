@@ -1,9 +1,11 @@
 package com.tts.weixin.request;
 
+import com.tts.util.CDataAdapter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
 
 /**
@@ -28,16 +30,16 @@ public class TextMessageRequest implements Serializable {
 
     //constructor
     public TextMessageRequest() {}
-    public TextMessageRequest(String toUserName, String fromUserName, String createTime, String msgType, String content, String msgId) {
+    public TextMessageRequest(String toUserName, String fromUserName, String createTime, String content, String msgId) {
         this.toUserName = toUserName;
         this.fromUserName = fromUserName;
         this.createTime = createTime;
-        this.msgType = msgType;
         this.content = content;
         this.msgId = msgId;
     }
 
     //Getter/Setter
+    @XmlJavaTypeAdapter(CDataAdapter.class)
     @XmlElement(name = "ToUserName")
     public String getToUserName() {
         return toUserName;
@@ -45,6 +47,7 @@ public class TextMessageRequest implements Serializable {
     public void setToUserName(String toUserName) {
         this.toUserName = toUserName;
     }
+    @XmlJavaTypeAdapter(CDataAdapter.class)
     @XmlElement(name = "FromUserName")
     public String getFromUserName() {
         return fromUserName;
@@ -59,6 +62,7 @@ public class TextMessageRequest implements Serializable {
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
+    @XmlJavaTypeAdapter(CDataAdapter.class)
     @XmlElement(name = "MsgType")
     public String getMsgType() {
         return msgType;
@@ -66,6 +70,7 @@ public class TextMessageRequest implements Serializable {
     public void setMsgType(String msgType) {
         this.msgType = msgType;
     }
+    @XmlJavaTypeAdapter(CDataAdapter.class)
     @XmlElement(name = "Content")
     public String getContent() {
         return content;

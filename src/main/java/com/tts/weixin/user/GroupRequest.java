@@ -54,6 +54,7 @@ public class GroupRequest implements Serializable {
     }
 
     public static class Image implements Serializable {
+        private static final long serialVersionUID = -6260673648618566099L;
         private String media_id;
 
         public Image() {}

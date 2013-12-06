@@ -72,6 +72,7 @@ public class MusicMessageResponse implements Serializable {
     }
 
     private static class Video implements Serializable {
+        private static final long serialVersionUID = -6640187987771068052L;
         private String mediaId;
         private String thumbMediaId;
 

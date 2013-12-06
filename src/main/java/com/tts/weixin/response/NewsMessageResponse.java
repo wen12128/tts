@@ -15,6 +15,7 @@ import java.io.Serializable;
  */
 @XmlRootElement(name = "xml")
 public class NewsMessageResponse implements Serializable {
+    private static final long serialVersionUID = -6601010067368901571L;
     //properties
     private String toUserName;
     private String fromUserName;

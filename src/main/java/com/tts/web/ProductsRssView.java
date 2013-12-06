@@ -1,18 +1,16 @@
 package com.tts.web;
 
-import com.sun.syndication.feed.rss.Content;
 import com.sun.syndication.feed.rss.Channel;
+import com.sun.syndication.feed.rss.Content;
 import com.sun.syndication.feed.rss.Item;
 import com.tts.entity.Product;
 import com.tts.entity.Products;
-import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.view.feed.AbstractRssFeedView;
 /**
  * A view creating a Atom representation from a list of Visit objects.
  *

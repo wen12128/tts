@@ -42,6 +42,7 @@
         <jackson.version>2.2.2</jackson.version>
 		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
+        <logback.extens.version>0.1.1</logback.extens.version>
 		<slf4j.version>1.7.5</slf4j.version>
         <!--guava-->
         <guava.version>12.0</guava.version>
@@ -81,6 +82,20 @@
     </scm> -->
 
 	<repositories>
+        <!--<repository>
+            <id>baemaven</id>
+            <name>BAE Maven</name>
+            <url>http://maven.duapp.com/nexus/content/groups/public/</url>
+            <releases><enabled>true</enabled></releases>
+        </repository>-->
+
+        <repository>
+            <id>oschina</id>
+            <name>oschina maven</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases><enabled>true</enabled></releases>
+        </repository>
+
         <repository>
             <id>webjars Maven Repository</id>
             <url>http://webjars.github.com/m2</url>
@@ -88,6 +103,20 @@
     </repositories>
 
     <pluginRepositories>
+        <!--<pluginRepository>
+            <id>baemaven</id>
+            <name>BAE Maven</name>
+            <url>http://maven.duapp.com/nexus/content/groups/public/</url>
+            <releases><enabled>true</enabled></releases>
+        </pluginRepository>-->
+
+        <pluginRepository>
+            <id>oschina</id>
+            <name>oschina maven</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+            <releases><enabled>true</enabled></releases>
+        </pluginRepository>
+
         <pluginRepository>
             <id>repository.springframework.maven.milestone</id>
             <name>Spring Framework Maven Milestone Repository</name>
@@ -218,9 +247,20 @@
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>${logback.extens.version}</version>
         </dependency>
 
 	    <!-- servlet -->
@@ -248,7 +288,6 @@
 			<groupId>com.sun.xml.bind</groupId>
 			<artifactId>jaxb-impl</artifactId>
 			<version>${jaxb-impl.version}</version>
-			<scope>provided</scope>
 		</dependency>
         <dependency>
             <groupId>jaxen</groupId>
@@ -416,7 +455,40 @@
             <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
-	</dependencies>
+
+        <!-- baidu yun-->
+        <!--<dependency>
+            <groupId>com.baidu.bce.javaruntime</groupId>
+            <artifactId>bce-api-util-local</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.bce.javaruntime</groupId>
+            <artifactId>bae-sdk-local</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.bce.javaruntime</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.18</version>
+            <classifier>bin</classifier>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.bce.javaruntime</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.baidu.bce.javaruntime</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.1</version>
+            <scope>provided</scope>
+        </dependency>-->
+    </dependencies>
 
 	<!-- all Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
 	<build>
@@ -480,13 +552,40 @@
 					<warName>tts</warName>
 				</configuration>
 			</plugin>
+            <!--<plugin>
+                <groupId>com.baidu.bae.maven.jetty</groupId>
+                <artifactId>bae-maven-jetty-plugin</artifactId>
+                <version>8.0.0.M3</version>
+                <configuration>
+                    <jettyport>8080</jettyport>
+                </configuration>
+            </plugin>
             <plugin>
+                <groupId>com.baidu.bae.maven</groupId>
+                <artifactId>bae-maven-plugin</artifactId>
+                <version>1.0.0.0</version>
+                <executions>
+                    <execution>
+                        <id>baedeploy</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>baedeploy</goal>
+                        </goals>
+                        <configuration>
+                            <changepass>false</changepass>
+                            <appid>appid126069fewz</appid>
+                            <version>1</version>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+            <!--<plugin>
                 <groupId>org.cloudfoundry</groupId>
                 <artifactId>cf-maven-plugin</artifactId>
                 <version>1.0.0.M4</version>
                 <configuration>
-                    <!--<username>wen12128@yahoo.com.cn</username>
-                    <password>cai19870110</password>-->
+                    &lt;!&ndash;<username>wen12128@yahoo.com.cn</username>
+                    <password>cai19870110</password>&ndash;&gt;
                     <server>mycloudfoundry-instance</server>
                     <target>http://api.run.pivotal.io</target>
 	                <appname>tts</appname>
@@ -499,7 +598,7 @@
                       </service>
                     </services>
                 </configuration>
-            </plugin>
+            </plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
