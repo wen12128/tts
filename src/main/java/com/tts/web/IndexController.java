@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,11 @@ public class IndexController {
 
     @Resource(name = "wxService")
     private IWXService wxService;
+
+    @RequestMapping(value = "/wx/test")
+    public ModelAndView test() {
+        return new ModelAndView("wxTest");
+    }
 
     @RequestMapping(value = "/wx",method = RequestMethod.GET,produces="text/html;charset=UTF-8")
     public @ResponseBody String wx(HttpServletRequest request) {
@@ -47,15 +53,15 @@ public class IndexController {
     @RequestMapping(value = "/wx",method = RequestMethod.POST,produces="text/html;charset=UTF-8")
     public @ResponseBody String message(HttpServletRequest request) {
         try{
-            if (check(request)) {
+            //if (check(request)) {
                 String xml = IOUtils.toString(request.getInputStream(), "UTF-8");
                 logger.info("wx data:\n"+xml+"\n");
 
                 String result = wxService.messageHandler(xml);
                 return result;
-            } else {
+            /*} else {
                 logger.error("===>POST不是来自微信服务器，校验失败!");
-            }
+            }*/
         }  catch (Exception e) {
             logger.error("wx post data error!");
         }

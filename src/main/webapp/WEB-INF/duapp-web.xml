@@ -6,7 +6,7 @@
     <system-properties>
         <property name="test.com" value="haha,test"/>
     </system-properties>
-    <sessions-enabled>true</sessions-enabled>
+    <!--<sessions-enabled>true</sessions-enabled>-->
     <static-files>
         <include path="/**.html"   expiration ="access 1 months" />
         <include path="/resources/**"   expiration ="access 60 seconds" />
