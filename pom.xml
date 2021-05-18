@@ -94,7 +94,7 @@
         <!--guava-->
         <guava.version>12.0</guava.version>
         <commons-io.version>2.4</commons-io.version>
-        <xstream.version>1.4.3</xstream.version>
+        <xstream.version>1.4.17</xstream.version>
         <httpclient.version>3.1</httpclient.version>
 		<!-- RSS -->
 		<rome.version>1.0</rome.version>
